@@ -45,10 +45,7 @@ exports[`TodoList Component > snapshot TodoList 1`] = `
         class="space-y-3"
       >
         <article
-          class="flex items-center justify-between px-5 py-4 rounded-xl 
-        transition-all duration-300 font-inter
-        bg-white dark:bg-[#262626] hover:shadow-md  border-2 border-gray-800
-        border-gray-200 dark:border-gray-700"
+          class="flex items-center justify-between px-5 py-4 rounded-xl transition-all duration-300 font-inter bg-white dark:bg-[#262626] hover:shadow-md border-2 border-gray-800 border-gray-200 dark:border-gray-700"
         >
           <div
             class="flex items-center gap-3"
@@ -100,6 +97,18 @@ exports[`TodoList Component > snapshot TodoList 1`] = `
             </svg>
           </button>
         </article>
+        <div
+          class="flex flex-col items-center justify-center py-6 space-y-2"
+        >
+          <div
+            class="w-10 h-10 border-4 border-blue-500 border-dashed rounded-full animate-spin"
+          />
+          <p
+            class="text-gray-600 dark:text-gray-300"
+          >
+            Memuat konfirmasi...
+          </p>
+        </div>
       </div>
     </div>
     <div>
