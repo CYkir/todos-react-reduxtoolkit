@@ -1,0 +1,112 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TodoList Component > snapshot TodoList 1`] = `
+<DocumentFragment>
+  <section
+    class="space-y-8 my-20"
+  >
+    <div>
+      <div
+        class="flex  justify-between mb-4"
+      >
+        <div
+          class="flex items-center gap-2 mb-4"
+        >
+          <h2
+            class="text-[#4EA8DE] font-semibold font-inter"
+          >
+            Belum Selesai
+          </h2>
+          <span
+            class=" bg-[#4EA8DE] dark:bg-[#262626] font-semibold text-[#f2f2f2] dark:text-gray-400 px-2 py-1 rounded-full"
+          >
+            1
+          </span>
+        </div>
+        <div
+          class="flex items-center gap-3 mb-4"
+        >
+          <h2
+            class="text-[#8284FA] font-semibold  font-inter"
+          >
+            Selesai
+          </h2>
+          <span
+            class="px-4 py-1 text-sm font-semibold
+    text-[#f2f2f2]
+    bg-[#8284FA]
+    rounded-full shadow-sm font-inter dark:bg-[#262626] dark:text-gray-400 "
+          >
+            0 de 1
+          </span>
+        </div>
+      </div>
+      <div
+        class="space-y-3"
+      >
+        <article
+          class="flex items-center justify-between px-5 py-4 rounded-xl 
+        transition-all duration-300 font-inter
+        bg-white dark:bg-[#262626] hover:shadow-md  border-2 border-gray-800
+        border-gray-200 dark:border-gray-700"
+        >
+          <div
+            class="flex items-center gap-3"
+          >
+            <button
+              class="transition"
+            >
+              <div
+                class="w-5 h-5 border-2 border-gray-800 dark:border-[#4EA8DE] rounded-full"
+              />
+            </button>
+            <span
+              class="text-sm sm:text-base text-gray-800 dark:text-gray-200"
+            >
+              Snapshot Todo
+            </span>
+          </div>
+          <button
+            class="text-gray-800 dark:text-gray-400 hover:text-red-500 transition"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-trash2 lucide-trash-2"
+              fill="none"
+              height="18"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="18"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10 11v6"
+              />
+              <path
+                d="M14 11v6"
+              />
+              <path
+                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"
+              />
+              <path
+                d="M3 6h18"
+              />
+              <path
+                d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+              />
+            </svg>
+          </button>
+        </article>
+      </div>
+    </div>
+    <div>
+      <div
+        class="space-y-3"
+      />
+    </div>
+  </section>
+</DocumentFragment>
+`;

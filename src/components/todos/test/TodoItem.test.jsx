@@ -1,8 +1,8 @@
 import { render } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
-import todoReducer from "../../store/slices/todoSlice";
-import TodoItem from "./TodoItem";
+import todoReducer from "@/store/slices/todoSlice";
+import TodoItem from "../TodoItem";
 import {  test, expect } from "vitest";
 
 const store = configureStore({

@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
-import todoReducer from "../../../store/slices/todoSlice";
+import todoReducer from "@/store/slices/todoSlice";
 import TodoForm from "../TodoForm";
 import { describe, test, expect } from "vitest";
 
