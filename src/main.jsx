@@ -6,6 +6,8 @@ import { ThemeProvider } from "./context/ThemeContext";
 import App from "./App";
 import "./index.css";
 
+import { registerSW } from "virtual:pwa-register";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <ThemeProvider>
@@ -13,3 +15,12 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </ThemeProvider>
   </Provider>,
 );
+
+registerSW({
+  onNeedRefresh() {
+    console.log("Update tersedia");
+  },
+  onOfflineReady() {
+    console.log("App siap offline");
+  },
+});
