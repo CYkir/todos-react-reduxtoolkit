@@ -1,31 +1,44 @@
-import { Trash2, CheckCircle2 } from "lucide-react";
+import { Trash2 } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { deleteTodo, toggleTodo } from "../../store/slices/todoSlice";
-import { useState } from "react";
-import { Icon } from "@iconify/react";  
-import ConfirmModal from "../common/ConfirmModal";
+import { useState, useCallback, memo } from "react";
+import { Icon } from "@iconify/react";
+import { lazy, Suspense } from "react";
+import Loader from "../common/Loader";
 
-export default function TodoItem({ todo }) {
+const ConfirmModal = lazy(() => import("../common/ConfirmModal"));
+
+function TodoItem({ todo }) {
   const dispatch = useDispatch();
   const [modalOpen, setModalOpen] = useState(false);
+
+  const handleToggle = useCallback(() => {
+    dispatch(toggleTodo(todo));
+  }, [dispatch, todo]);
+
+  const handleDelete = useCallback(() => {
+    dispatch(deleteTodo(todo.id));
+  }, [dispatch, todo.id]);
+
+  const openModal = useCallback(() => {
+    setModalOpen(true);
+  }, []);
+
+  const closeModal = useCallback(() => {
+    setModalOpen(false);
+  }, []);
 
   return (
     <>
       <article
-        className={`flex items-center justify-between px-5 py-4 rounded-xl 
-        transition-all duration-300 font-inter
-        ${
+        className={`flex items-center justify-between px-5 py-4 rounded-xl transition-all duration-300 font-inter ${
           todo.completed
-            ? "bg-[#d9d9d9] dark:bg-[#262626] "
-            : "bg-white dark:bg-[#262626] hover:shadow-md  border-2 border-gray-800"
-        }
-        border-gray-200 dark:border-gray-700`}
+            ? "bg-[#d9d9d9] dark:bg-[#262626]"
+            : "bg-white dark:bg-[#262626] hover:shadow-md border-2 border-gray-800"
+        } border-gray-200 dark:border-gray-700`}
       >
         <div className="flex items-center gap-3">
-          <button
-            onClick={() => dispatch(toggleTodo(todo))}
-            className="transition"
-          >
+          <button onClick={handleToggle} className="transition">
             {todo.completed ? (
               <Icon
                 icon="icon-park-solid:check-one"
@@ -50,19 +63,23 @@ export default function TodoItem({ todo }) {
         </div>
 
         <button
-          onClick={() => setModalOpen(true)}
+          onClick={openModal}
           className="text-gray-800 dark:text-gray-400 hover:text-red-500 transition"
         >
           <Trash2 size={18} />
         </button>
       </article>
 
-      <ConfirmModal
-        isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
-        onConfirm={() => dispatch(deleteTodo(todo.id))}
-        message={`Hapus "${todo.title}"?`}
-      />
+      <Suspense fallback={<Loader text="Memuat konfirmasi..." />}>
+        <ConfirmModal
+          isOpen={modalOpen}
+          onClose={closeModal}
+          onConfirm={handleDelete}
+          message={`Hapus "${todo.title}"?`}
+        />
+      </Suspense>
     </>
   );
 }
+
+export default memo(TodoItem);
